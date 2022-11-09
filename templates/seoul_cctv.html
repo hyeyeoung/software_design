@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=YOUR_CLIENT_ID&submodules=visualization">
+        var data = [
+    new naver.maps.LatLng(37.75,125.4),
+    new naver.maps.LatLng(35.42,128.56),
+    new naver.maps.LatLng(35.57,128.34),
+    
+    // (생략)
+
+    new naver.maps.LatLng(36.30,125.9),
+    new naver.maps.LatLng(35.80,128.2),
+    new naver.maps.LatLng(38.70,127.9)
+];
+
+naver.maps.onJSContentLoaded = function() {
+    var heatmap = new naver.maps.visualization.HeatMap({
+        map: map,
+        data: data
+    });
+};
+
+    </script>
+</body>
+</html>
