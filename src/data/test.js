@@ -1,3 +1,4 @@
+// csv 데이터를 json객체화 시켜서 변수 저장 파일
 export const markerdata = [
     {
      "total_S": 49.336352,

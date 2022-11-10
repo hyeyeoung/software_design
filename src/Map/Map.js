@@ -1,3 +1,4 @@
+// 카카오 맵 자료 받아와서 마커 생성 마커는 foreach문 사용
 /*global kakao */
 import React, { useEffect } from "react";
 import { markerdata } from "../data/test";
