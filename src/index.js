@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import KakaoMap from "./pages/KakaoMap"
 import reportWebVitals from './reportWebVitals';
 import Radio from "./pages/input"
 
