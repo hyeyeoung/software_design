@@ -4,10 +4,13 @@ import React, { useEffect, useState } from "react";
 import { markerdata } from "../data/test";
 import '../pages/KakaoMap'
 
+// props는 Map의 부모인 input.js에서 받아오는 x값
 export default function Map(props) {
+  // useEffect => react hook기능 x값에 변화가 있을 때마다 지도 다시 로드 설정
   useEffect(() => {
     mapscript();
   }, [props.x]);
+  // 지도 생성 초기 설정 생성, 초기 위치는 어디인지 어느 div에서 생성할 건지 등
   const mapscript = () => {
     let container = document.getElementById("map");
     let options = {
@@ -15,10 +18,11 @@ export default function Map(props) {
       level: 5,
     };
 
-    //map
+    //map 지도 생성 새로운 객체? 생성
     const map = new kakao.maps.Map(container, options);
+    // 구간 검색 기능을 위한 배열 선언
     let result = [];
-    switch(props.x){
+    switch(props.x){ //x값을 기준으로 10구간 설정 기본 값으로는 모든 핀을 보여준다.
       case '1':
         result = markerdata.filter(loc => loc.total_S>=0 && loc.total_S <= 10);
         break;
@@ -55,7 +59,7 @@ export default function Map(props) {
 
 
     result.forEach((el) => {
-      // 마커를 생성합니다
+      // 마커를 생성
       new kakao.maps.Marker({
         //마커가 표시 될 지도
         map: map,
@@ -66,6 +70,7 @@ export default function Map(props) {
       });
     });
   };
+  // 값: ~ 이 부분은 변화화는 x값을 확인하기 위해서 삽입(추후 삭제 예정)
   return (<div>
     <div> <b>값: {props.x}</b></div>
     <div id="map" className="map" style={{width: "80%", height: "80vh" }}></div>

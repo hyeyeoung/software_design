@@ -2,8 +2,9 @@ import React, { useState, Component } from "react";
 import Map from "../Map/Map";
 
 function Radio(){
+    // x는 변화하는 value를 담을 변수로 생각
     const [x, setx] = useState("0");
-    const isClick = (e) => {
+    const isClick = (e) => { // click할 때 마다 x값 업데이트 이벤트 설정
         setx(e.target.value)
     }
     // input 태그는 자식을 가지면 안된다.
