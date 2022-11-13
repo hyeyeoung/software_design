@@ -8,6 +8,7 @@ function App() {
      <div className = "App">
       <div className='black-nav'>
         <h2>cctv 위치</h2>
+        <br></br>
       </div>
      </div>
     );    

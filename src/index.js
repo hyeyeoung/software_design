@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import KakaoMap from "./pages/KakaoMap"
 import reportWebVitals from './reportWebVitals';
+import Radio from "./pages/input"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   <App />
-  <KakaoMap />
-  </>,
-  document.getElementById("root")
+  <Radio />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
