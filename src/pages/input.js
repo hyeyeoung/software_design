@@ -1,9 +1,12 @@
-import React, { useState, Component } from "react";
-import Map from "../Map/Map";
+import React, { useState } from "react";
+import SelectBar from "../SelectBar";
+import Map from "./Map/Map";
 
-function Radio(){
+function Search(){
     // x는 변화하는 value를 담을 변수로 생각
     const [x, setx] = useState("0");
+    const [search, setSearch] = useState("");
+
     const isClick = (e) => { // click할 때 마다 x값 업데이트 이벤트 설정
         setx(e.target.value)
     }
@@ -11,6 +14,8 @@ function Radio(){
     return(
         <div>
         <div className="check">
+            <input type="radio" value = "0" checked={x === "0"} onChange={isClick}></input>
+            0 ~ 100
             <input type="radio" value = "1" checked={x === "1"} onChange={isClick}></input>
             0 ~ 10
             <input type="radio" value = "2" checked={x === "2"} onChange={isClick}></input>
@@ -32,8 +37,10 @@ function Radio(){
             <input type="radio" value = "10" checked={x === "10"} onChange={isClick}></input>
             91 ~ 100
         </div>
-        <div className="Map"> <Map x = {x}></Map></div>
+        <SelectBar setSearch={setSearch} />
+        <p>{search}</p>
+        <div className="Map"> <Map x = {x} district={search}></Map></div>
         </div>
     )
 }
-export default Radio
+export default Search

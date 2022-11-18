@@ -1,9 +1,9 @@
 // 카카오 맵 자료 받아와서 마커 생성 마커는 foreach문 사용
 // 나중에 경로 재설정할 필요가 좀 있을듯..
 /*global kakao */
-import React, { useEffect, useState } from "react";
-import { markerdata } from "../../data/test";
-import '../KakaoMap'
+import React, { useEffect } from "react";
+import { markerdata } from "../../assets/test";
+import '../KakaoMap';
 
 // props는 Map의 부모인 input.js에서 받아오는 x값
 export default function Map(props) {
@@ -24,6 +24,9 @@ export default function Map(props) {
     // 구간 검색 기능을 위한 배열 선언
     let result = [];
     switch(props.x){ //x값을 기준으로 10구간 설정 기본 값으로는 모든 핀을 보여준다.
+      case '0': // 서울시 전체
+        result = markerdata;
+        break;
       case '1':
         result = markerdata.filter(loc => loc.total_S>=0 && loc.total_S <= 10);
         break;
@@ -57,7 +60,6 @@ export default function Map(props) {
       default:
         result = markerdata.filter(()=> true);
     }
-
 
     result.forEach((el) => {
       // 마커를 생성
